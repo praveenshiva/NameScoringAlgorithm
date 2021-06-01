@@ -14,7 +14,7 @@ Below are the assumptions:
 2. Scoring would be calculated only for character a-z and A-Z. All other characters will be ignored
 3. Names will always start with alphabets
 4. File path and delimiter will be provided as input to utility. If no delimiter is provided, default delimiter will be considered
-5. In the case of file does not exists or any exception happens this program would return -1 as total score
+5. In file does not exists or any exception happens this program would return -1 as total score
 
 
     
