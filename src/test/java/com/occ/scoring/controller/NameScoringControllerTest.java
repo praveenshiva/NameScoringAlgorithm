@@ -20,7 +20,7 @@ class NameScoringControllerTest {
     void getScoreByFirstName_Test() {
         String str = "\"MARY\",\"PATRICIA\",\"LINDA\",\"BARBARA\",\"VINCENZO\",\"SHON\",\"LYNWOOD\",\"JERE\",\"HAI\"";
         try {
-            assertEquals(3194, NameScoringController.getScoreByFirstName(str, ScoringConstants.DELIMITER, ScoringConstants.SORTING_TYPE, ScoringConstants.SCORING_TYPE_FIRST_NAME));
+            assertEquals(3194, NameScoringController.getScore(str, ScoringConstants.DELIMITER, ScoringConstants.SORTING_TYPE, ScoringConstants.SCORING_TYPE_FIRST_NAME));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -30,7 +30,7 @@ class NameScoringControllerTest {
     void getScoreWithSpecialChars() {
         String str = "\"MAR@#Y\",\"PATRICIA\",\"LINDA\",\"BARBARA\",\"VINCENZO\",\"SHO#$N\",\"LYNWOOD\",\"JERE\",\"HAI\"";
         try {
-            assertEquals(3194, NameScoringController.getScoreByFirstName(str, ScoringConstants.DELIMITER, ScoringConstants.SORTING_TYPE, ScoringConstants.SCORING_TYPE_FIRST_NAME));
+            assertEquals(3194, NameScoringController.getScore(str, ScoringConstants.DELIMITER, ScoringConstants.SORTING_TYPE, ScoringConstants.SCORING_TYPE_FIRST_NAME));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -44,7 +44,7 @@ class NameScoringControllerTest {
     @Test
     void getScoreWithNullData() {
         try {
-            assertEquals(-1, NameScoringController.getScoreByFirstName(null, ScoringConstants.DELIMITER, ScoringConstants.SORTING_TYPE, ScoringConstants.SCORING_TYPE_FIRST_NAME));
+            assertEquals(-1, NameScoringController.getScore(null, ScoringConstants.DELIMITER, ScoringConstants.SORTING_TYPE, ScoringConstants.SCORING_TYPE_FIRST_NAME));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -54,7 +54,7 @@ class NameScoringControllerTest {
     void getScoreWithSpaces() {
         String str = "\"MAR   @#Y\",\"PATRICIA\",\"LINDA\",\"BARBARA\",\"VINCENZO   \",\"SHO#$N\",\"LYNWOOD\",\"JERE\",\"HAI\"";
         try {
-            assertEquals(3194, NameScoringController.getScoreByFirstName(str, ScoringConstants.DELIMITER, ScoringConstants.SORTING_TYPE, ScoringConstants.SCORING_TYPE_FIRST_NAME));
+            assertEquals(3194, NameScoringController.getScore(str, ScoringConstants.DELIMITER, ScoringConstants.SORTING_TYPE, ScoringConstants.SCORING_TYPE_FIRST_NAME));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -65,7 +65,7 @@ class NameScoringControllerTest {
     void getScoreWithInvalidSorting() {
         String str = "\"MAR   @#Y\",\"PATRICIA\",\"LINDA\",\"BARBARA\",\"VINCENZO   \",\"SHO#$N\",\"LYNWOOD\",\"JERE\",\"HAI\"";
         try {
-            assertEquals(-1, NameScoringController.getScoreByFirstName(str, ScoringConstants.DELIMITER, ScoringConstants.SORTING_TYPE, "BLABLA"));
+            assertEquals(-1, NameScoringController.getScore(str, ScoringConstants.DELIMITER, ScoringConstants.SORTING_TYPE, "BLABLA"));
         } catch (Exception e) {
             e.printStackTrace();
         }

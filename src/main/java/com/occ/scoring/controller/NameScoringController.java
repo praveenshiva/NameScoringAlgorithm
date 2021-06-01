@@ -41,7 +41,7 @@ public class NameScoringController {
         String data;
         try (FileReader fileReader = new FileReader(input); BufferedReader reader = new BufferedReader(fileReader)) {
             data = reader.readLine();
-            return getScoreByFirstName(data, delimiter, sorting, scoring);
+            return getScore(data, delimiter, sorting, scoring);
         } catch (Exception e) {
             logger.error(e.getMessage());
             return -1;
@@ -58,7 +58,7 @@ public class NameScoringController {
      * @param scoring   Scoring Algorithm to be used
      * @return Final Score
      */
-    public static int getScoreByFirstName(String data, String delimiter, String sort, String scoring) throws Exception {
+    public static int getScore(String data, String delimiter, String sort, String scoring) throws Exception {
         logger.info("Getting score by first name {} with delimiter {}", data, delimiter);
         int totScore = -1;
         try {
@@ -72,7 +72,7 @@ public class NameScoringController {
         ScoringAlgorithm scoringService = ScoringFactory.getScoringAlgorithm(scoring);
         SortingAlgorithm sorting = ScoringFactory.getSortingAlgorithm(sort);
         if (null == names || names.length == 0)
-            logger.warn("No names in the file.. score would be zero");
+            logger.warn("No names in the file.. score would be -1");
 
         sorting.getSortedList(Arrays.asList(names));
         totScore = scoringService.getFileScore(Arrays.asList(names));
