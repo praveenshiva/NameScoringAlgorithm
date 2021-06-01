@@ -1,6 +1,6 @@
 # NameScoringAlgorithm
 
-1. Name Scoring Utility is a utility tool to calculate score of each name and then aggregate all scores into total score. If file is invalid or path does not exists, program returns -1
+1. Name Scoring Utility is a utility tool to calculate score of each name from a give file and then aggregate all scores into total score. If file is invalid or path does not exists, program returns -1
 2. Run the utility program from the project directory with below mvn command ( please make sure you have maven is installed and its in classpath
     mvn compile exec:java -Dexec.mainClass="com.occ.scoring.ScoreNames" -Dexec.args="src\main\resources\names.txt"
 3. This project is capable of taking different kind of sorting and scoring algorithms
